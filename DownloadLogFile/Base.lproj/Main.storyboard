@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="viu-ZQ-LuW">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +12,67 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DownloadLogFile" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="zbz-Y4-kxi">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xey-2p-aiE">
+                                <rect key="frame" x="0.0" y="100" width="375" height="567"/>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="zbz-Y4-kxi" firstAttribute="leading" secondItem="Xey-2p-aiE" secondAttribute="leading" id="Keu-ip-yng"/>
+                            <constraint firstItem="Xey-2p-aiE" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Qel-bX-Zzo"/>
+                            <constraint firstAttribute="trailing" secondItem="zbz-Y4-kxi" secondAttribute="trailing" id="lWB-U1-5rZ"/>
+                            <constraint firstItem="zbz-Y4-kxi" firstAttribute="trailing" secondItem="Xey-2p-aiE" secondAttribute="trailing" id="nKx-tl-Znc"/>
+                            <constraint firstItem="Xey-2p-aiE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="36" id="sDb-BT-WEd"/>
+                            <constraint firstItem="zbz-Y4-kxi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="y08-PG-xQH"/>
+                            <constraint firstItem="zbz-Y4-kxi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="y9R-HC-7Ea"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="8PR-fn-gIJ"/>
+                    <connections>
+                        <outlet property="scrollView" destination="Xey-2p-aiE" id="aQB-Sk-gjS"/>
+                        <outlet property="searchBar" destination="zbz-Y4-kxi" id="Td8-cJ-WTH"/>
+                        <outlet property="searchDisplayController" destination="J3t-LO-BcG" id="zNm-SN-6jz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="J3t-LO-BcG">
+                    <connections>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="wJl-Zv-8W2"/>
+                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="ymm-gk-dVB"/>
+                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="0vz-Uc-AC5"/>
+                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="6Vo-bv-0Lx"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
+            <point key="canvasLocation" x="196" y="117.39130434782609"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fK2-KO-bvQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="viu-ZQ-LuW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BRg-27-4YZ">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="kd9-96-xdW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v2f-Xk-9Z9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-441" y="117"/>
         </scene>
     </scenes>
 </document>

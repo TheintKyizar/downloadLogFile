@@ -1,0 +1,6 @@
+framework module Pods_DownloadLogFile {
+  umbrella header "Pods-DownloadLogFile-umbrella.h"
+
+  export *
+  module * { export * }
+}
