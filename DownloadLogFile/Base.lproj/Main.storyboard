@@ -4,7 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,21 +17,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="zbz-Y4-kxi">
+                            <searchBar contentMode="redraw" placeholder="Filename" translatesAutoresizingMaskIntoConstraints="NO" id="zbz-Y4-kxi">
                                 <rect key="frame" x="0.0" y="64" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
                             </searchBar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xey-2p-aiE">
-                                <rect key="frame" x="0.0" y="100" width="375" height="567"/>
+                                <rect key="frame" x="0.0" y="150" width="375" height="517"/>
                             </scrollView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="search in file" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ncL-oq-OQd">
+                                <rect key="frame" x="0.0" y="120" width="375" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="ncL-oq-OQd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3nL-Sn-MIa"/>
+                            <constraint firstItem="Xey-2p-aiE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="86" id="Bqn-dl-DhU"/>
+                            <constraint firstItem="ncL-oq-OQd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="56" id="EXW-MC-fLm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ncL-oq-OQd" secondAttribute="trailing" id="IEs-24-DAg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xey-2p-aiE" secondAttribute="trailing" id="JOX-CN-x3A"/>
                             <constraint firstItem="zbz-Y4-kxi" firstAttribute="leading" secondItem="Xey-2p-aiE" secondAttribute="leading" id="Keu-ip-yng"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ncL-oq-OQd" secondAttribute="bottom" constant="517" id="Pd4-Mb-EH4"/>
                             <constraint firstItem="Xey-2p-aiE" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Qel-bX-Zzo"/>
+                            <constraint firstItem="Xey-2p-aiE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Xud-wQ-eZs"/>
                             <constraint firstAttribute="trailing" secondItem="zbz-Y4-kxi" secondAttribute="trailing" id="lWB-U1-5rZ"/>
                             <constraint firstItem="zbz-Y4-kxi" firstAttribute="trailing" secondItem="Xey-2p-aiE" secondAttribute="trailing" id="nKx-tl-Znc"/>
-                            <constraint firstItem="Xey-2p-aiE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="36" id="sDb-BT-WEd"/>
+                            <constraint firstItem="Xey-2p-aiE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="86" id="sDb-BT-WEd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Xey-2p-aiE" secondAttribute="bottom" id="wZ3-Je-eSx"/>
                             <constraint firstItem="zbz-Y4-kxi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="y08-PG-xQH"/>
                             <constraint firstItem="zbz-Y4-kxi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="y9R-HC-7Ea"/>
                         </constraints>
@@ -42,6 +60,7 @@
                         <outlet property="scrollView" destination="Xey-2p-aiE" id="aQB-Sk-gjS"/>
                         <outlet property="searchBar" destination="zbz-Y4-kxi" id="Td8-cJ-WTH"/>
                         <outlet property="searchDisplayController" destination="J3t-LO-BcG" id="zNm-SN-6jz"/>
+                        <outlet property="textfield" destination="ncL-oq-OQd" id="mRu-K5-9LK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
