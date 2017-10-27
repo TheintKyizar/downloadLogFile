@@ -10,7 +10,14 @@ import UIKit
 import Alamofire
 
 class ViewController: UIViewController, UISearchBarDelegate, UIScrollViewDelegate, UITextFieldDelegate {
-
+    @IBOutlet weak var nextbutton: UIButton!
+    
+    @IBAction func donebutton(_ sender: UIButton) {
+        self.scrollView.scrollToTop(animated: true)
+    }
+    @IBOutlet weak var donebutton: UIButton!
+    @IBAction func nextbutton(_ sender: UIButton) {
+    }
     @IBOutlet weak var textfield: UITextField!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -28,7 +35,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UIScrollViewDelegat
         scrollView.isScrollEnabled = true
         /*let label = UILabel(frame: CGRect(x:scrollView.contentOffset.x, y:scrollView.contentOffset.y, width:scrollView.frame.size.width, height:scrollView.frame.size.height))*/
         textview.textColor = UIColor.black
-        textview.font = UIFont.boldSystemFont(ofSize: 20)
+        
         textview.isEditable = false
         textview.text = ""
         refreshTextView()
@@ -36,6 +43,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UIScrollViewDelegat
         NotificationCenter.default.addObserver(self, selector: #selector(success), name: NSNotification.Name(rawValue: "success"), object: nil)
     }
     func refreshTextView() {
+        textview.font = UIFont.boldSystemFont(ofSize: 16)
         let fixedWidth = scrollView.frame.size.width
         let size = textview.sizeThatFits(CGSize(width:fixedWidth, height: CGFloat.greatestFiniteMagnitude))
         var frame = textview.frame
@@ -45,7 +53,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UIScrollViewDelegat
         // Do any additional setup after loading the view, typically from a nib.
         //textview.backgroundColor = UIColor.lightGray
         let fullscreen = UIScreen.main.bounds
-        self.scrollView.contentSize = CGSize(width:fullscreen.width, height:textview.frame.height)
+        self.scrollView.contentSize = CGSize(width:fullscreen.width, height:textview.frame.height+2)
         self.scrollView.addSubview(textview)
         
     }
@@ -75,6 +83,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UIScrollViewDelegat
             print(error)
         }
                 textview.attributedText = attributed
+                self.refreshTextView()
     }
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if(decelerate) {
@@ -165,5 +174,11 @@ extension UIViewController {
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alertController, animated: true, completion: nil)
         
+    }
+}
+extension UIScrollView {
+    func scrollToTop(animated: Bool) {
+        let topOffset = CGPoint(x: 0, y: -contentInset.top)
+        setContentOffset(topOffset, animated: animated)
     }
 }
